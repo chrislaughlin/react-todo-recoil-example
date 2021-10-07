@@ -1,6 +1,13 @@
 import RemoveTodo from './removeTodo';
 
-const ToDoItem = ({ text, complete, index, setTodos }) => {
+import {
+    useRecoilState
+} from 'recoil';
+import { todoState } from '../recoilStateStore';
+
+const ToDoItem = ({ text, complete, index }) => {
+    const [, setTodos] = useRecoilState(todoState);
+
     return (
         <li>
             <div className="view">

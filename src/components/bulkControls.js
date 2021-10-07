@@ -1,9 +1,14 @@
 import { useRecoilValue } from 'recoil';
 
-import { completeCountState } from '../recoilStateStore';
+import { completeCountState, todoState } from '../recoilStateStore';
 
-const BulkControls = ({ setTodos }) => {
+import {
+    useRecoilState
+} from 'recoil';
+
+const BulkControls = () => {
     const completeCount = useRecoilValue(completeCountState);
+    const [todos, setTodos] = useRecoilState(todoState);
 
     return (
         <div>

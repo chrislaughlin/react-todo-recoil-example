@@ -1,6 +1,12 @@
 import ToDoItem from './todoItem';
 
-const ToDoList = ({ todos, setTodos }) => {
+import {
+    useRecoilState
+} from 'recoil';
+import { todoState } from '../recoilStateStore';
+
+const ToDoList = () => {
+    const [todos] = useRecoilState(todoState);
     return (
         <ul className="todo-list">
             {todos.map((todo, index) => {
@@ -9,7 +15,6 @@ const ToDoList = ({ todos, setTodos }) => {
                         {...todo}
                         key={index}
                         index={index}
-                        setTodos={setTodos}
                     />
                 );
             })}

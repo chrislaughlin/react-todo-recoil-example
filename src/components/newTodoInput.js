@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 
-const NewTodoInput = ({ setTodos }) => {
+import {
+    useRecoilState
+} from 'recoil';
+
+import { todoState } from '../recoilStateStore';
+
+const NewTodoInput = () => {
     const [newTodo, setNewTodo] = useState('');
+    const [, setTodos] = useRecoilState(todoState);
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
